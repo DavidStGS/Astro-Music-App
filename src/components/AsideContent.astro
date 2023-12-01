@@ -1,0 +1,16 @@
+---
+import SideMenuItemsLibrary from "./SideMenuItemsLibrary.astro";
+import LibraryIcon from "@/icons/Library.astro";
+import { playlists } from "@/lib/data";
+import AsideCard from "./AsideCard.astro";
+---
+
+<div class="h-full">
+  <ul class="p-2">
+    <SideMenuItemsLibrary href="/">
+      <LibraryIcon />
+       Tu biblioteca
+    </SideMenuItemsLibrary>
+  </ul>
+  {playlists.map((playlists) => <AsideCard playlist={playlists} />)}
+</div>
