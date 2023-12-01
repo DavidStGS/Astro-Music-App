@@ -1,6 +1,6 @@
 ---
 import type { Playlist } from "@/lib/data";
-
+import { PlayButtom } from "@/components/CardPlayButtom.jsx";
 interface Props {
   playlist: Playlist;
 }
@@ -10,9 +10,19 @@ const { id, cover, title, artists } = playlist;
 const artistsStrings = artists.join(", ");
 ---
 
-<a
-  href={`/playlists/${id}`}
-  class="flex
+<article class="group relative">
+  <div
+    class="absolute right-[25px] bottom-[105px] translate-y-4
+  transition-all duration-500 opacity-0
+  group-hover:opacity-100
+  group-hover:translate-y-0
+  z-10"
+  >
+    <PlayButtom client:load id={id} />
+  </div>
+  <a
+    href={`/playlists/${id}`}
+    class="flex
     flex-col
     items-center
     justify-center
@@ -23,41 +33,42 @@ const artistsStrings = artists.join(", ");
     hover:bg-neutral-400/10
     transition
     p-3"
->
-  <div
-    class="aspect-square
+  >
+    <div
+      class="aspect-square
     w-full
     h-full
     rounded-md
     overflow-hidden
     shadow-lg
     shadow-[#000000]"
-    style={{ transition: "box-shadow 0.1s" }}
-  >
-    <picture>
-      <img
-        src={cover}
-        alt={`Cover of ${title} by ${artistsStrings}`}
-        transition:name=`playlist ${id} image`
-      />
-    </picture>
-  </div>
-  <div class="flex flex-col items-start w-full pt-4 gap-y-1">
-    <p
-      transition:name=`playlist ${title}`
-      class="font-semibold truncate w-full text-white"
+      style={{ transition: "box-shadow 0.1s" }}
     >
-      {title}
-    </p>
-    <p
-      class="text-neutral-400
+      <picture>
+        <img
+          src={cover}
+          alt={`Cover of ${title} by ${artistsStrings}`}
+          transition:name=`playlist ${id} image`
+        />
+      </picture>
+    </div>
+    <div class="flex flex-col items-start w-full pt-4 gap-y-1">
+      <p
+        transition:name=`playlist ${title}`
+        class="font-semibold truncate w-full text-white"
+      >
+        {title}
+      </p>
+      <p
+        class="text-neutral-400
             text-sm
             pb-4
             w-full
             truncate"
-      transition:name=`playlist ${id} artists`
-    >
-      By {artists}
-    </p>
-  </div>
-</a>
+        transition:name=`playlist ${id} artists`
+      >
+        By {artists}
+      </p>
+    </div>
+  </a>
+</article>

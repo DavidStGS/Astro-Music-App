@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 export const Pause = () => (
   <svg
@@ -29,11 +29,14 @@ export function Player() {
   const [currentSong, setCurrentSong] = useState(null);
   const audioRef = useRef();
 
+  useEffect(() => {
+    audioRef.current.src = "/music/1/01.mp3";
+  }, []);
+
   const handleClick = () => {
       if (isPlaying) {
         audioRef.current.pause();
       } else {
-        audioRef.current.src = "/music/1/01.mp3";
         audioRef.current.play();
       }
   
