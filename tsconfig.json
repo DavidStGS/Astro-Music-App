@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "C:/Users/USER/Desktop/Proyectos/Astro-Music",
     "paths": {
       "@/*": [
         "src/*"
@@ -14,7 +14,9 @@
       "@/lib": [
         "src/lib/*"
       ]
-    }
+    },
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
   },
   "extends": "astro/tsconfigs/strict"
 }

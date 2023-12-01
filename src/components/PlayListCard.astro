@@ -26,8 +26,8 @@ const artistsStrings = artists.join(", ");
 >
   <div
     class="aspect-square
-    w-40
-    h-40
+    w-full
+    h-full
     rounded-md
     overflow-hidden
     shadow-lg
@@ -35,17 +35,27 @@ const artistsStrings = artists.join(", ");
     style={{ transition: "box-shadow 0.1s" }}
   >
     <picture>
-      <img src={cover} alt={`Cover of ${title} by ${artistsStrings}`} />
+      <img
+        src={cover}
+        alt={`Cover of ${title} by ${artistsStrings}`}
+        transition:name=`playlist ${id} image`
+      />
     </picture>
   </div>
   <div class="flex flex-col items-start w-full pt-4 gap-y-1">
-    <p class="font-semibold truncate w-full text-white">{title}</p>
+    <p
+      transition:name=`playlist ${title}`
+      class="font-semibold truncate w-full text-white"
+    >
+      {title}
+    </p>
     <p
       class="text-neutral-400
             text-sm
             pb-4
             w-full
             truncate"
+      transition:name=`playlist ${id} artists`
     >
       By {artists}
     </p>
