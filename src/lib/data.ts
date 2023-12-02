@@ -318,4 +318,13 @@ export const songs: Song[] = [
     "album": "Chill Lo-Fi Music",
     "duration": "4:20"
   },
+  {
+    "id": 1,
+    "albumId": 6,
+    "title": "Moonlit",
+    "image": `https://f4.bcbits.com/img/a0363730459_16.jpg`,
+    "artists": ["WFS"],
+    "album": "Chill",
+    "duration": "3:12"
+  },
 ]

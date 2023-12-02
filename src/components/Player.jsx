@@ -32,7 +32,6 @@ const CurrentSong = ({ image, title, artists }) => {
         gap-x-3
         cursor-pointer
         hover:bg-neutral-800/50
-        w-full
         p-2
         rounded-sm"
       >
@@ -45,7 +44,7 @@ const CurrentSong = ({ image, title, artists }) => {
             <img src={image} alt={`Cover of ${title}}`} />
           </picture>
         </div>
-        <div className="flex flex-col overflow-hidden mb-2">
+        <div className="flex flex-col overflow-hidden">
           <p className="text-white truncate">{title}</p>
           <p className="text-neutral-400 text-sm truncate">
             {artists?.join(', ')}
@@ -85,19 +84,21 @@ export function Player() {
   }
 
   return (
-    <div className="flex flex-row justify-between w-full px-1">
-      <div>
+    <div className="flex flex-row justify-between w-full h-[72px] px-1">
+      <div className="w-[200px] p-1">
       <CurrentSong {...currentMusic.song}/>
       </div>
-      <div className="grid place-content-center gap-4 flex-1">
-        <div className="flex justify-center flex-col items-center">
-          <button className="bg-white rounded-full p-2 mt-[9px]" onClick={handleClick}>
+      <div className="grid place-content-center flex-1">
+        <div className="flex justify-center flex-col items-center mb-[23px] ">
+          <button className="bg-white rounded-full p-2" onClick={handleClick}>
             {isPlaying ? <Pause /> : <Play />}
           </button>
         </div>
       </div>
-
       <div className="grid place-content-center">
+        <div className="w-[200px] p-1">
+          <CurrentSong {...currentMusic.song}/>
+        </div>
       </div>
       <audio ref={audioRef}></audio>
     </div>
