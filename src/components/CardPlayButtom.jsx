@@ -1,16 +1,20 @@
 import { Play, Pause } from './Player.jsx';
 import { usePlayerStore } from "@/store/playerStore";
-
+import { useEffect, useState } from 'react';
 export function PlayButtom({ id }) {
     const {
         currentMusic,
         isPlaying,
         setIsPlaying,
-        setCurrentMusic
+        setCurrentMusic,
       } = usePlayerStore(state => state)
-      
-      const isPlayingPlaylist = isPlaying && currentMusic?.playlist.id === id;
-      
+
+      const [isPlayingPlaylist, setIsPlayingPlaylist] = useState(false);
+
+      useEffect(() => {
+        setIsPlayingPlaylist(isPlaying && currentMusic?.playlist.id === id);
+      }, [isPlaying, currentMusic]);
+
       const handleClick = () => {
         if (isPlayingPlaylist) {
           setIsPlaying(false)
@@ -28,7 +32,7 @@ export function PlayButtom({ id }) {
 
     return (
         <button onClick={handleClick} className="rounded-full bg-green-500 p-4 hover:p-[17px]">
-            {isPlayingPlaylist ? <Pause /> : <Play />  }
+            {isPlayingPlaylist ? <Pause /> : <Play />}
         </button>
     )
   }
