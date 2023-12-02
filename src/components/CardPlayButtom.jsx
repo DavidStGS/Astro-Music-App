@@ -6,9 +6,9 @@ export function PlayButtom({ id }) {
         currentMusic,
         isPlaying,
         setIsPlaying,
-        setCurrentMusic,
+        setCurrentMusic
       } = usePlayerStore(state => state)
-
+      
       const [isPlayingPlaylist, setIsPlayingPlaylist] = useState(false);
 
       useEffect(() => {
@@ -16,6 +16,7 @@ export function PlayButtom({ id }) {
       }, [isPlaying, currentMusic]);
 
       const handleClick = () => {
+        
         if (isPlayingPlaylist) {
           setIsPlaying(false)
           return
