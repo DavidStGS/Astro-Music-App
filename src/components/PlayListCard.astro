@@ -10,7 +10,14 @@ const { id, cover, title, artists } = playlist;
 const artistsStrings = artists.join(", ");
 ---
 
-<article class="group relative">
+<article
+  class="group relative bg-neutral-400/5
+    cursor-pointer
+  hover:bg-neutral-400/10
+    rounded-md
+    transition-all
+    duration-500"
+>
   <div
     class="absolute right-[25px] bottom-[105px] translate-y-4
   transition-all duration-500 opacity-0
@@ -18,7 +25,7 @@ const artistsStrings = artists.join(", ");
   group-hover:translate-y-0
   z-10"
   >
-    <PlayButtom client:load id={id} />
+    <PlayButtom client:visible id={id} transition:persist />
   </div>
   <a
     href={`/playlists/${id}`}
@@ -26,13 +33,9 @@ const artistsStrings = artists.join(", ");
     flex-col
     items-center
     justify-center
-    rounded-md
     gap-x-4
-    bg-neutral-400/5
-    cursor-pointer
-    hover:bg-neutral-400/10
-    transition
     p-3"
+    transition:name=`playlist${id}asd`
   >
     <div
       class="aspect-square
