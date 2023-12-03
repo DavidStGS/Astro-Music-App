@@ -2,6 +2,7 @@ import { useRef, useEffect } from "react";
 import { usePlayerStore } from "@/store/playerStore";
 import { CurrentSong } from "./CurrentSong";
 import { Play, Pause } from "../icons/Icons";
+import { Slider } from "./SliderVolumen";
 
 export const Player = () => {
   const {
@@ -11,6 +12,7 @@ export const Player = () => {
   } = usePlayerStore(state => state)
   
   const audioRef = useRef();
+  const volumeRef = useRef(1);
 
   useEffect(() => {
     isPlaying 
@@ -23,6 +25,7 @@ export const Player = () => {
     if (song) {
       const src = `/music/${playlist?.id}/0${song.id}.mp3`
       audioRef.current.src = src
+      audioRef.current.volume = volumeRef.current
       audioRef.current.play()
     }
   }, [currentMusic])
@@ -45,7 +48,18 @@ export const Player = () => {
       </div>
       <div className="grid place-content-center">
         <div className="w-[200px] p-1">
-          <CurrentSong {...currentMusic.song}/>
+          <Slider 
+          defaultValue={[100]}
+          max={100}
+          min={0}
+          className="w-[95px]"
+          onValueChange={ (value) => {
+            const [NewVolumen] = value 
+            const volumeValue = NewVolumen / 100
+            volumeRef.current = volumeValue
+            audioRef.current.volume = volumeValue
+          }}
+          />
         </div>
       </div>
       <audio ref={audioRef}></audio>
