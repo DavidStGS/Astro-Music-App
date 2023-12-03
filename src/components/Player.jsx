@@ -9,10 +9,10 @@ export const Player = () => {
     currentMusic,
     isPlaying,
     setIsPlaying,
+    volume
   } = usePlayerStore(state => state)
   
   const audioRef = useRef();
-  const volumeRef = useRef(1);
 
   useEffect(() => {
     isPlaying 
@@ -21,11 +21,15 @@ export const Player = () => {
   }, [isPlaying]);
 
   useEffect(() => {
+    audioRef.current.volume = volume;
+  }, [volume]);
+
+  useEffect(() => {
     const { song, playlist, songs } = currentMusic
     if (song) {
       const src = `/music/${playlist?.id}/0${song.id}.mp3`
       audioRef.current.src = src
-      audioRef.current.volume = volumeRef.current
+      audioRef.current.volume = volume
       audioRef.current.play()
     }
   }, [currentMusic])
@@ -47,7 +51,7 @@ export const Player = () => {
         </div>
       </div>
       <div className="grid place-content-center">
-        <div className="w-[200px] p-1">
+        <div className="w-[200px] pl-[11px]">
             <VolumenControl />
         </div>
       </div>
