@@ -1,6 +1,8 @@
 ---
 import MusicTable from "@/components/MusicTable.astro";
 import Layout from "../../layouts/Layout.astro";
+import { PlayButtom } from "../../components/CardPlayButtom";
+
 import { allPlaylists, songs } from "../../lib/data";
 const { id } = Astro.params;
 
@@ -60,7 +62,10 @@ const playListSongs = songs.filter(
         </div>
       </div>
     </header>
-    <div class="bg-zinc-800/20 mt-6 flex-1 p-6 blur-100 h-ful">
+    <div class="bg-zinc-800/20 mt-6 flex-1 p-6 blur-100">
+      <div class="pl-6 pt-1 pb-1">
+        <PlayButtom client:load id={id} size="large" />
+      </div>
       <MusicTable song={playListSongs} />
     </div>
   </div>

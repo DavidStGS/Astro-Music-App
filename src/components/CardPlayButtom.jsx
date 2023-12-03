@@ -2,7 +2,7 @@ import { Play, Pause } from '../icons/Icons.jsx';
 import { usePlayerStore } from "../store/playerStore";
 import { useEffect, useState } from 'react';
 
-export function PlayButtom({ id }) {
+export function PlayButtom({ id, size = 'small'}) {
     const {
         currentMusic,
         isPlaying,
@@ -31,10 +31,10 @@ export function PlayButtom({ id }) {
             setCurrentMusic({ songs, playlist, song: songs[0]})
           })
         }
-
+        const iconSize = size === 'small' ? 'w-4 h-4' : 'w-5 h-5'
     return (
-        <button aria-label='Play' onClick={handleClick} className="rounded-full bg-green-500 p-4 hover:p-[17px]">
-            {isPlayingPlaylist ? <Pause /> : <Play />}
+        <button aria-label='Play' onClick={handleClick} className="rounded-full bg-green-500 p-4 transition hover:scale-105 ">
+            {isPlayingPlaylist ? <Pause className={iconSize}/> : <Play className={iconSize}/>}
         </button>
     )
   }
