@@ -3,16 +3,14 @@ export const CurrentSong = ({ image, title, artists }) => {
         <a
           className="flex
           items-center
+          pt-1
           gap-x-3
-          cursor-pointer
-          hover:bg-neutral-800/50
-          p-2
-          rounded-sm"
+          rounded-lg"
         >
           <div className="relative
           rounded-md
-          w-[50px]
-          h-[50px]
+          w-[55px]
+          h-[55px]
           overflow-hidden">
             <picture>
               <img src={image} alt={`Cover of ${title}}`} />

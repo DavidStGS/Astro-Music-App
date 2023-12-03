@@ -3,7 +3,7 @@ import { usePlayerStore } from "@/store/playerStore";
 import { CurrentSong } from "./CurrentSong";
 import { Play, Pause } from "../icons/Icons";
 import { VolumenControl } from "./VolumenControl";
-
+import { SongControl } from "./SongControl";
 export const Player = () => {
   const {
     currentMusic,
@@ -44,18 +44,20 @@ export const Player = () => {
       <CurrentSong {...currentMusic.song}/>
       </div>
       <div className="grid place-content-center flex-1">
-        <div className="flex justify-center flex-col items-center mb-[23px] ">
-          <button className="bg-white rounded-full p-2" onClick={handleClick}>
-            {isPlaying ? <Pause /> : <Play />}
-          </button>
+        <div className="flex justify-center flex-col items-center">
+            <button className="bg-white rounded-full p-2" onClick={handleClick}>
+              {isPlaying ? <Pause /> : <Play />}
+            </button>
+          <SongControl audio={audioRef}/> 
+          <audio ref={audioRef}></audio>
         </div>
+
       </div>
       <div className="grid place-content-center">
         <div className="w-[200px] pl-[11px]">
             <VolumenControl />
         </div>
       </div>
-      <audio ref={audioRef}></audio>
     </div>
   );
 }
