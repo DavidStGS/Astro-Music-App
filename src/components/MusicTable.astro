@@ -1,6 +1,7 @@
 ---
 import Time from "../icons/Time.astro";
 import { type Song } from "../lib/data";
+import { SongRow } from "./SongRow";
 
 interface Props {
   song: Song[];
@@ -21,34 +22,7 @@ const { song } = Astro.props;
     </thead>
     <tbody>
       <tr class="h-[15px]"></tr>
-      {
-        song.map((song, index) => (
-          <tr class="text-gray-400 hover:bg-zinc-800 overflow-hidden transition duration-100">
-            <td class="px-4 py-2 rounded-tl-lg rounded-bl-lg w-14">
-              {index + 1}
-            </td>
-            <td class="px-4 py-2 flex gap-x-2">
-              <picture>
-                <img
-                  class="w-[45px] h-[45px] rounded-[3px]"
-                  src={song.image}
-                  alt={`Cover of ${song.title}}`}
-                />
-              </picture>
-              <div class="flex flex-col">
-                <p class="text-white truncate">{song.title}</p>
-                <p class="text-neutral-400 text-sm truncate">
-                  {song.artists.join(", ")}
-                </p>
-              </div>
-            </td>
-            <td class="px-4 py-2">{song.album}</td>
-            <td class="px-4 py-2 rounded-tr-lg rounded-br-lg">
-              {song.duration}
-            </td>
-          </tr>
-        ))
-      }
+      {song.map((song, index) => <SongRow song={song} index={index} />)}
     </tbody>
   </table>
 </div>
