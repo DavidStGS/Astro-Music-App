@@ -1,13 +1,13 @@
 ---
 import Time from "../icons/Time.astro";
-import { type Song } from "../lib/data";
+import {  songs, allPlaylists } from "../lib/data";
 import { SongRow } from "./SongRow";
 
-interface Props {
-  song: Song[];
-}
+const { id } = Astro.params;
 
-const { song } = Astro.props;
+const playList = allPlaylists.find((playlist) => playlist.id === id);
+const playListSongs = songs.filter(
+  (song) => song.albumId === playList?.albumId)
 ---
 
 <div class="px-6 pt-4">
@@ -22,7 +22,7 @@ const { song } = Astro.props;
     </thead>
     <tbody>
       <tr class="h-[15px]"></tr>
-      {song.map((song, index) => <SongRow song={song} index={index} />)}
+      <SongRow song={playListSongs} />
     </tbody>
   </table>
 </div>
