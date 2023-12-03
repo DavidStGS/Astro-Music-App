@@ -1,6 +1,7 @@
-import { Play, Pause } from './Player.jsx';
+import { Play, Pause } from '../icons/Icons.jsx';
 import { usePlayerStore } from "@/store/playerStore";
 import { useEffect, useState } from 'react';
+
 export function PlayButtom({ id }) {
     const {
         currentMusic,
