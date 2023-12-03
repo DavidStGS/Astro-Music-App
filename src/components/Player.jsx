@@ -38,6 +38,11 @@ export const Player = () => {
       audioRef.current.volume = volume
       audioRef.current.play()
     }
+    audioRef.current.onended = () => {
+      let nextSongIndex = songs.findIndex(s => s.id === song.id) + 1;
+      if (nextSongIndex >= songs.length) nextSongIndex = 0;
+      setCurrentMusic({ song: songs[nextSongIndex], playlist, songs });
+  };
   }, [currentMusic])
 
   const handleClick = () => {
