@@ -16,7 +16,7 @@ export const SongControl = ({ audio }) => {
     const handleTimeUpdate = () => {
         setCurrentTime(audio.current.currentTime)
     }
-    
+
     const formatTime = time => {
         if (time === 0) {
             return '0:00'
@@ -39,7 +39,7 @@ export const SongControl = ({ audio }) => {
               }}
               
               />
-            <span className="text-white opacity-70 text-xs w-[23px] justify-center pt-[2px]">{duration ? formatTime(duration): '0:00'}</span>
+            <span className="text-white opacity-70 text-xs w-[23px] justify-center pt-[2px]">{formatTime(duration)}</span>
         </div>
     )
 }

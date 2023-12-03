@@ -60,14 +60,14 @@ export const Player = () => {
               {isPlaying ? <Pause /> : <Play />}
             </button>
 
-          <SongControl audio={audioRef}/> 
+          {/* <SongControl audio={audioRef}/>  */}
           <audio ref={audioRef}></audio>
         </div>
 
       </div>
       <div className="grid place-content-center">
         <div className="w-[200px] pl-[11px]">
-            <VolumenControl />
+            {/* <VolumenControl /> */}
         </div>
       </div>
     </div>
