@@ -60,7 +60,6 @@ export const Player = () => {
               {isPlaying ? <Pause /> : <Play />}
             </button>
 
-          <SongControl audio={audioRef}/> 
           <audio ref={audioRef}></audio>
         </div>
 
