@@ -43,7 +43,7 @@ export const Player = () => {
       if (nextSongIndex >= songs.length) nextSongIndex = 0;
       setCurrentMusic({ song: songs[nextSongIndex], playlist, songs });
   };
-  }, [currentMusic])
+  }, [currentMusic, setCurrentMusic, volume])
 
   const handleClick = () => {
     setIsPlaying(!isPlaying)
@@ -60,14 +60,14 @@ export const Player = () => {
               {isPlaying ? <Pause /> : <Play />}
             </button>
 
-          {/* <SongControl audio={audioRef}/>  */}
+          <SongControl audio={audioRef}/> 
           <audio ref={audioRef}></audio>
         </div>
 
       </div>
       <div className="grid place-content-center">
         <div className="w-[200px] pl-[11px]">
-            {/* <VolumenControl /> */}
+            <VolumenControl />
         </div>
       </div>
     </div>
