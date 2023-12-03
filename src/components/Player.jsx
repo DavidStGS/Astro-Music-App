@@ -17,9 +17,13 @@ export const Player = () => {
   const audioRef = useRef();
 
   useEffect(() => {
-    isPlaying 
-    ? audioRef.current.play() 
-    : audioRef.current.pause();
+    if (isPlaying) {
+      setTimeout(() => {
+        audioRef.current.play();
+      });
+    } else {
+      audioRef.current.pause();
+    }
   }, [isPlaying]);
 
   useEffect(() => {
