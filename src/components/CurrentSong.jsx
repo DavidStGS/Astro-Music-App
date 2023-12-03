@@ -11,7 +11,7 @@ export const CurrentSong = ({ image, title, artists }) => {
 
     return (
       isLoading ? (
-        <div className="flex items-center pt-[3px] pl-[1px] gap-x-4 rounded-lg w-[400px] h-[60px] animate-pulse duration-500">
+        <div className="flex items-center pt-[3px] pl-[1px] gap-x-4 rounded-lg w-[400px] h-[60px] duration-500">
         <div className="relative rounded-md w-[55px] h-[55px] overflow-hidden">
             <div className="bg-zinc-900 w-full h-full" />
         </div>
