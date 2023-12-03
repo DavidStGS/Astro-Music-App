@@ -1,1 +1,0 @@
-import{j as r}from"./jsx-runtime.a607968e.js";import"./index.9da4b1b7.js";function i(){const t=new Date().getHours();let e="";return t<12?e="¡Buenos días!":t<18?e="¡Buenas tardes!":e="¡Buenas noches!",r.jsx("h1",{className:"text-3xl font-bold text-white",children:e})}export{i as DateToday};
