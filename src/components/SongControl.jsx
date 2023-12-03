@@ -11,10 +11,12 @@ export const SongControl = ({ audio }) => {
         return () => {
             audio.current.removeEventListener('timeupdate', handleTimeUpdate)
         }
-    })
+    }, [])
+
     const handleTimeUpdate = () => {
         setCurrentTime(audio.current.currentTime)
     }
+    
     const formatTime = time => {
         if (time === 0) {
             return '0:00'
