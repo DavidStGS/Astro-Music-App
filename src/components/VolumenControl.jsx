@@ -23,8 +23,8 @@ export const VolumenControl = () => {
     }
 
     return (
-        <div className="flex justify-center gap-x-2 text-[#C1C1C1]">
-            <button onClick={handleClickVolume}>
+        <div className="flex justify-center gap-x-2 text-white">
+            <button className="opacity-70 hover:opacity-100"onClick={handleClickVolume}>
                 {volume < 0.01 ? <VolumeSilence /> : volume < 0.3 ? <VolumeLow /> : volume < 0.65 ? <VolumeMid /> : <VolumeHigh />}
             </button>
 
@@ -32,6 +32,7 @@ export const VolumenControl = () => {
               defaultValue={[100]}
               max={100}
               min={0}
+              value={[volume * 100]}
               className="w-[93px]"
               onValueChange={ (value) => {
                 const [NewVolumen] = value 
