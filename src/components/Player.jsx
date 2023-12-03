@@ -52,7 +52,6 @@ export const Player = () => {
   return (
     <div className="flex flex-row justify-between w-full h-[72px] px-1">
       <div className="w-[200px] p-1">
-      <CurrentSong {...currentMusic.song}/>
       </div>
       <div className="grid place-content-center flex-1">
         <div className="flex justify-center flex-col items-center">
@@ -60,6 +59,7 @@ export const Player = () => {
               {isPlaying ? <Pause /> : <Play />}
             </button>
 
+          <SongControl audio={audioRef}/> 
           <audio ref={audioRef}></audio>
         </div>
 
