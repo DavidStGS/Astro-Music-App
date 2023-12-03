@@ -5,6 +5,7 @@ import { VolumeSilence } from "../icons/Icons";
 import { VolumeLow } from "../icons/Icons";
 import { VolumeMid } from "../icons/Icons";
 import { VolumeHigh } from "../icons/Icons";
+
 export const VolumenControl = () => {
     const volume = usePlayerStore (state => state.volume);
     const setVolume = usePlayerStore (state => state.setVolume);
