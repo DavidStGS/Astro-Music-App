@@ -52,7 +52,7 @@ export const Player = () => {
       </div>
       <div className="grid place-content-center flex-1">
         <div className="flex justify-center flex-col items-center">
-            <button className="bg-white rounded-full p-2" onClick={handleClick}>
+            <button aria-label='Play' className="bg-white rounded-full p-2" onClick={handleClick}>
               {isPlaying ? <Pause /> : <Play />}
             </button>
 

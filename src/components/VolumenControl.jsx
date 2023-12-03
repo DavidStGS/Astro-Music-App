@@ -24,7 +24,7 @@ export const VolumenControl = () => {
 
     return (
         <div className="flex justify-center gap-x-2 text-white">
-            <button className="opacity-70 hover:opacity-100"onClick={handleClickVolume}>
+            <button aria-label='Volumen' className="opacity-70 hover:opacity-100" onClick={handleClickVolume}>
                 {volume < 0.01 ? <VolumeSilence /> : volume < 0.3 ? <VolumeLow /> : volume < 0.65 ? <VolumeMid /> : <VolumeHigh />}
             </button>
 

@@ -33,7 +33,7 @@ export function PlayButtom({ id }) {
         }
 
     return (
-        <button onClick={handleClick} className="rounded-full bg-green-500 p-4 hover:p-[17px]">
+        <button aria-label='Play' onClick={handleClick} className="rounded-full bg-green-500 p-4 hover:p-[17px]">
             {isPlayingPlaylist ? <Pause /> : <Play />}
         </button>
     )
