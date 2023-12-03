@@ -1,9 +1,10 @@
 import { useRef, useEffect } from "react";
-import { usePlayerStore } from "@/store/playerStore";
+import { usePlayerStore } from "../store/playerStore";
 import { CurrentSong } from "./CurrentSong";
 import { Play, Pause } from "../icons/Icons";
 import { VolumenControl } from "./VolumenControl";
 import { SongControl } from "./SongControl";
+
 export const Player = () => {
   const {
     currentMusic,

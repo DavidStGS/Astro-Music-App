@@ -1,4 +1,4 @@
-import { usePlayerStore } from "@/store/playerStore";
+import { usePlayerStore } from "../store/playerStore";
 import { useRef } from "react";
 import { Slider } from "./SliderVolumen";
 import { VolumeSilence } from "../icons/Icons";

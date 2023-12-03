@@ -1,5 +1,5 @@
 import { Play, Pause } from '../icons/Icons.jsx';
-import { usePlayerStore } from "@/store/playerStore";
+import { usePlayerStore } from "../store/playerStore";
 import { useEffect, useState } from 'react';
 
 export function PlayButtom({ id }) {
