@@ -64,9 +64,8 @@ const playListSongs = songs.filter(
     </header>
     <div class="bg-zinc-800/20 mt-6 flex-1 p-6 blur-100">
       <div class="pl-6 pt-1 pb-1">
-        <PlayButtom client:load id={id} size="large" />
+        <PlayButtom client:load id={id} />
       </div>
-      <MusicTable song={playListSongs} />
     </div>
   </div>
 </Layout>
