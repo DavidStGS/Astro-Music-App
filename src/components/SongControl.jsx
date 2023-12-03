@@ -39,7 +39,7 @@ export const SongControl = ({ audio }) => {
               }}
               
               />
-            <span className="text-white opacity-70 text-xs w-[23px] justify-center pt-[2px]">{formatTime(duration)}</span>
+            <span className="text-white opacity-70 text-xs w-[23px] justify-center pt-[2px]">{duration ? formatTime(duration): "0:00"}</span>
         </div>
     )
 }
