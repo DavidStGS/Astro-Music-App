@@ -1,4 +1,4 @@
-export const Pause = ({ className }) => (
+export const Pause = () => (
     <svg
       role="img"
       aria-label="Pause" 
@@ -11,7 +11,7 @@ export const Pause = ({ className }) => (
     </svg>
   );
   
-  export const Play = ({ className }) => (
+  export const Play = () => (
     <svg
       role="img"
       aria-label="Play" 
