@@ -1,7 +1,7 @@
 import { useRef, useEffect, useState } from "react";
 import { usePlayerStore } from "../store/playerStore";
 import { CurrentSong } from "./CurrentSong";
-import { Play, Pause, SongPrevious, SongNext } from "../icons/Icons";
+import { Play, Pause, SongPrevious, SongNext, SongRandom, SongLoop } from "../icons/Icons";
 import { VolumenControl } from "./VolumenControl";
 import { SongControl } from "./SongControl";
 
@@ -11,12 +11,21 @@ export const Player = () => {
     isPlaying,
     setIsPlaying,
     volume,
-    setCurrentMusic
+    setCurrentMusic,
+    playedSongs,
+    setPlayedSongs
   } = usePlayerStore(state => state)
   const [isLooping, setIsLooping] = useState(false);
+  const [isRandom, setIsRandom] = useState(false);
+
   const handleLoop = () => {
     setIsLooping(!isLooping);
   };
+
+  const handleRandomToggle = () => {
+    setIsRandom(!isRandom);
+  };
+
   const audioRef = useRef();
 
   useEffect(() => {
@@ -33,6 +42,7 @@ export const Player = () => {
     audioRef.current.volume = volume;
   }, [volume]);
 
+
   useEffect(() => {
     const { song, playlist, songs } = currentMusic
     if (song) {
@@ -43,11 +53,16 @@ export const Player = () => {
     }
 
     audioRef.current.onended = () => {
-      let nextSongIndex = songs.findIndex(s => s.id === song.id) + 1;
-      if (nextSongIndex >= songs.length) nextSongIndex = 0;
+      let nextSongIndex;
+      if (isRandom) {
+        nextSongIndex = Math.floor(Math.random() * songs.length);
+      } else {
+        nextSongIndex = songs.findIndex(s => s.id === song.id) + 1;
+        if (nextSongIndex >= songs.length) nextSongIndex = 0;
+      }
       setCurrentMusic({ song: songs[nextSongIndex], playlist, songs });
-  };
-  }, [currentMusic])
+    };
+  }, [currentMusic]);
 
   const handleClick = () => {
     setIsPlaying(!isPlaying)
@@ -70,6 +85,7 @@ export const Player = () => {
     }
     setCurrentMusic({ song: songs[nextSongIndex], playlist, songs });
   }
+  
 
   return (
     <div className="flex flex-row justify-between w-full h-[72px] px-1">
@@ -79,17 +95,24 @@ export const Player = () => {
       <div className="grid place-content-center flex-1">
         <div className="flex justify-center flex-col items-center">
           <div className="flex flex-row gap-x-6">
-          <button aria-label='Previous' className="text-[#C1C1C1]" onClick={handlePrevious}>
+          <button className="text-[#C1C1C1] cursor-default transition-all duration-75" onClick={handleRandomToggle}>
+           {isRandom ?  <SongRandom className="text-green-500" /> : <SongRandom className="text-[#C1C1C1]" />}
+          </button>
+          <button aria-label='Previous' className="text-[#C1C1C1] hover:text-white cursor-default" onClick={handlePrevious}>
             <SongPrevious />
           </button>
-            <button aria-label='Play' className="bg-white rounded-full p-2" onClick={handleClick}>
+            <button aria-label='Play' className="bg-white rounded-full p-2 cursor-default hover:scale-105 transition duration-75" onClick={handleClick}>
               {isPlaying ? <Pause /> : <Play />}
             </button>
-            <button aria-label='Previous' className="text-[#C1C1C1]" onClick={handleNext}>
-              < SongNext/>
+            <button aria-label='Previous' className="text-[#C1C1C1] hover:text-white cursor-default" onClick={handleNext}>
+              <SongNext/>
+            </button>
+            <button className="text-[#C1C1C1] cursor-default transition-all duration-75" onClick={handleLoop}>
+              {isLooping ?  <SongLoop className="text-green-500" /> : <SongLoop className="text-[#C1C1C1]" />}
             </button>
           </div>
           <SongControl audio={audioRef}/> 
+
           <audio ref={audioRef} loop={isLooping}></audio>
         </div>
 
