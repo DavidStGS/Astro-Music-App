@@ -13,27 +13,25 @@ export const Time = () => (
   ></path></svg>
 )
 
-
 export const SongRow = ({ song }) => {
 
   return (
-    <div class="px-6 pt-4">
-      <table class="table-auto text-left min-w-full divide-y divide-slate-500/50">
+    <div className="px-6 pt-4">
+      <table className="table-auto text-left min-w-full divide-y divide-slate-500/50">
         <thead>
-          <tr class="text-sm text-gray-400 font-light">
-            <th class="px-4 py-2">#</th>
-            <th class="px-4 py-2">Título</th>
-            <th class="px-4 py-2">Álbum</th>
-            <th class="px-4 py-2"><Time /></th>
+          <tr className="text-sm text-gray-400 font-light">
+            <th className="px-4 py-2">#</th>
+            <th className="px-4 py-2">Título</th>
+            <th className="px-4 py-2">Álbum</th>
+            <th className="px-4 py-2"><Time /></th>
           </tr>
         </thead>
         <tbody>
-          <tr class="h-[15px]"></tr>
+          <tr className="h-[15px]"></tr>
           {song.map((song, index) => (
             <tr 
-              className="text-gray-400 hover:bg-zinc-800 overflow-hidden transition duration-100"
-              key={index}
-              onClick={() => handleRowClick(song)}
+            className={`text-gray-400 hover:bg-zinc-800 overflow-hidden transition duration-100 cursor-pointer`}
+            key={song.id}
             >
               <td className="px-4 py-2 rounded-tl-lg rounded-bl-lg w-14">
                 {index + 1}
@@ -64,4 +62,4 @@ export const SongRow = ({ song }) => {
         </table>
     </div>
   )
-};
+      }
