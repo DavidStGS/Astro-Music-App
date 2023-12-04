@@ -1,7 +1,7 @@
 ---
 import type { Playlist } from "../lib/data";
 import { PlayButtom } from "../components/CardPlayButtom.jsx";
-import { fade } from "astro:transitions";
+
 interface Props {
   playlist: Playlist;
 }
@@ -17,9 +17,7 @@ const artistsStrings = artists.join(", ");
     bg-neutral-400/5
       cursor-pointer
     hover:bg-neutral-400/10
-      rounded-md
-      transition-all
-      duration-500"
+      rounded-md"
   >
     <div
       class="absolute
@@ -32,10 +30,12 @@ const artistsStrings = artists.join(", ");
         z-10
         transition-all
         duration-300"
+      transition:name=`playlist${id}asddd`
     >
       <PlayButtom client:visible id={id} />
     </div>
     <a
+      transition:name=`playlist${id}all`
       href={`/playlists/${id}`}
       class="flex
         flex-col
@@ -45,7 +45,6 @@ const artistsStrings = artists.join(", ");
         p-3
         transition-all
         duration-700"
-      transition:name=`playlist${id}all`
     >
       <div
         class="aspect-square
