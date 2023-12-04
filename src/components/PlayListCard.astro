@@ -29,8 +29,9 @@ const artistsStrings = artists.join(", ");
         opacity-0
         group-hover:opacity-100
         group-hover:translate-y-0
-        z-10"
-      transition:name=`playlist${id}asddd`
+        z-10
+        transition-all
+        duration-300"
     >
       <PlayButtom client:visible id={id} />
     </div>
@@ -41,7 +42,9 @@ const artistsStrings = artists.join(", ");
         items-center
         justify-center
         gap-x-4
-        p-3"
+        p-3
+        transition-all
+        duration-700"
       transition:name=`playlist${id}all`
     >
       <div
