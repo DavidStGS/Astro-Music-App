@@ -13,6 +13,7 @@ export const Player = () => {
     volume,
     setCurrentMusic
   } = usePlayerStore(state => state)
+  
   const [isLooping, setIsLooping] = useState(false);
   const [isRandom, setIsRandom] = useState(false);
 

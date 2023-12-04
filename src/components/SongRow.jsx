@@ -62,4 +62,4 @@ export const SongRow = ({ song }) => {
         </table>
     </div>
   )
-      }
+}
