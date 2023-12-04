@@ -1,7 +1,7 @@
 import { useRef, useEffect, useState } from "react";
 import { usePlayerStore } from "../store/playerStore";
 import { CurrentSong } from "./CurrentSong";
-import { Play, Pause, SongPrevious, SongNext, SongRandom, SongLoop } from "../icons/Icons";
+import { Play, Pause, SongPrevious, SongNext, SongRandom, SongLoop, SongNormal } from "../icons/Icons";
 import { VolumenControl } from "./VolumenControl";
 import { SongControl } from "./SongControl";
 
@@ -92,8 +92,8 @@ export const Player = () => {
       <div className="grid place-content-center flex-1">
         <div className="flex justify-center flex-col items-center">
           <div className="flex flex-row gap-x-6">
-          <button className="text-[#C1C1C1] cursor-default transition-all duration-75" onClick={handleRandomToggle}>
-           {isRandom ?  <SongRandom className="text-green-500" /> : <SongRandom className="text-[#C1C1C1]" />}
+          <button className="text-[#C1C1C1] cursor-default transition-all duration-75 hover:text-white" onClick={handleRandomToggle}>
+           {isRandom ?  <SongRandom className="text-green-500" /> : <SongRandom className="text-[#C1C1C1] hover:text-white" />}
           </button>
           <button aria-label='Previous' className="text-[#C1C1C1] hover:text-white cursor-default" onClick={handlePrevious}>
             <SongPrevious />
@@ -104,8 +104,8 @@ export const Player = () => {
             <button aria-label='Previous' className="text-[#C1C1C1] hover:text-white cursor-default" onClick={handleNext}>
               <SongNext/>
             </button>
-            <button className="text-[#C1C1C1] cursor-default transition-all duration-75" onClick={handleLoop}>
-              {isLooping ?  <SongLoop className="text-green-500" /> : <SongLoop className="text-[#C1C1C1]" />}
+            <button className="text-[#C1C1C1] cursor-default transition-all duration-75 hover:text-white" onClick={handleLoop}>
+              {isLooping ?  <SongLoop className="text-green-500" /> : <SongNormal className="text-[#C1C1C1] hover:text-white" />}
             </button>
           </div>
           <SongControl audio={audioRef}/> 
