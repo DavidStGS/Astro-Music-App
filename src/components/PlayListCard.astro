@@ -30,12 +30,11 @@ const artistsStrings = artists.join(", ");
         z-10
         transition-all
         duration-300"
-      transition:name=`playlist${id}asddd`
     >
       <PlayButtom client:visible id={id} />
     </div>
     <a
-      transition:name=`playlist${id}all`
+      transition:name=`playlist ${id} artists`
       href={`/playlists/${id}`}
       class="flex
         flex-col
@@ -54,21 +53,13 @@ const artistsStrings = artists.join(", ");
           overflow-hidden
           shadow-lg
           shadow-[#000000]"
-        style={{ transition: "box-shadow 0.1s" }}
       >
         <picture>
-          <img
-            src={cover}
-            alt={`Cover of ${title} by ${artistsStrings}`}
-            transition:name=`playlist ${id} image`
-          />
+          <img src={cover} alt={`Cover of ${title} by ${artistsStrings}`} />
         </picture>
       </div>
       <div class="flex flex-col items-start w-full pt-4 gap-y-1">
-        <p
-          transition:name=`playlist ${title}`
-          class="font-semibold truncate w-full text-white"
-        >
+        <p class="font-semibold truncate w-full text-white">
           {title}
         </p>
         <p
@@ -77,7 +68,6 @@ const artistsStrings = artists.join(", ");
             pb-4
             w-full
             truncate"
-          transition:name=`playlist ${id} artists`
         >
           By {artists}
         </p>
