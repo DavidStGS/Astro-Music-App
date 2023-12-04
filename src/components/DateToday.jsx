@@ -1,19 +1,20 @@
-import { useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 export function DateToday () {
-  const currentTime = new Date();
-  const currentHour = currentTime.getHours();
+  const [greeting, setGreeting] = useState("");
 
-  let greeting = "";
-useEffect(() => {
+  useEffect(() => {
+    const currentTime = new Date();
+    const currentHour = currentTime.getHours();
+
     if (currentHour >= 8 && currentHour < 12) {
-      greeting = "¡Buenos días!";
+      setGreeting("¡Buenos días!");
     } else if (currentHour >= 12 && currentHour < 20) {
-      greeting = "¡Buenas tardes!";
+      setGreeting("¡Buenas tardes!");
     } else {
-      greeting = "¡Buenas noches!";
+      setGreeting("¡Buenas noches!");
     }
-}, [greeting]);
+  }, []);
 
   return <p className="text-[32px] font-extrabold text-white tracking-tighter">{greeting}</p>;
 };
