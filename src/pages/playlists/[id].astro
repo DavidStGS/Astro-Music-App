@@ -4,7 +4,8 @@ import Layout from "../../layouts/Layout.astro";
 import { PlayButtom } from "../../components/CardPlayButtom";
 
 import { allPlaylists, songs } from "../../lib/data";
-import { SongRow } from "../../components/SongRow";
+// import { SongRow } from "../../components/SongRow";
+import MusicsTable from "@/components/MusicsTable.astro";
 const { id } = Astro.params;
 
 const playList = allPlaylists.find((playlist) => playlist.id === id);
@@ -65,7 +66,7 @@ const playListSongs = songs.filter(
           <PlayButtom client:visible id={id} />
         </div>
       </div>
-      <!-- <SongRow song={playListSongs} /> -->
+      <MusicsTable songs={playListSongs} />
     </div>
   </div>
 </Layout>
