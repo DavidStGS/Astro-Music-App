@@ -57,9 +57,7 @@ export const Player = () => {
         nextSongIndex = songs.findIndex(s => s.id === song.id) + 1;
         if (nextSongIndex >= songs.length) nextSongIndex = 0;
       }
-        setTimeout(() => {
-          setCurrentMusic({ song: songs[nextSongIndex], playlist, songs });
-        }, 1200);
+        setCurrentMusic({ song: songs[nextSongIndex], playlist, songs });
     };
   }, [currentMusic]);
 
