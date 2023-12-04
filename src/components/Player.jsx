@@ -13,7 +13,7 @@ export const Player = () => {
     volume,
     setCurrentMusic
   } = usePlayerStore(state => state)
-
+  
   const [isLooping, setIsLooping] = useState(false);
   const [isRandom, setIsRandom] = useState(false);
 
@@ -99,9 +99,9 @@ export const Player = () => {
           <button aria-label='Previous' className="text-[#C1C1C1] hover:text-white cursor-default" onClick={handlePrevious}>
             <SongPrevious />
           </button>
-            {/* <button aria-label='Play' className="bg-white rounded-full p-2 cursor-default hover:scale-105 transition duration-75" onClick={handleClick}>
+            <button aria-label='Play' className="bg-white rounded-full p-2 cursor-default hover:scale-105 transition duration-75" onClick={handleClick}>
               {isPlaying ? <Pause /> : <Play />}
-            </button> */}
+            </button>
             <button aria-label='Next' className="text-[#C1C1C1] hover:text-white cursor-default" onClick={handleNext}>
               <SongNext/>
             </button>
