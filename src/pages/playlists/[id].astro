@@ -4,7 +4,7 @@ import Layout from "../../layouts/Layout.astro";
 import { PlayButtom } from "../../components/CardPlayButtom";
 
 import { allPlaylists, songs } from "../../lib/data";
-import { SongRow } from "@/components/SongRow";
+import { SongRow } from "../../components/SongRow";
 const { id } = Astro.params;
 
 const playList = allPlaylists.find((playlist) => playlist.id === id);

@@ -11,9 +11,7 @@ export const Player = () => {
     isPlaying,
     setIsPlaying,
     volume,
-    setCurrentMusic,
-    playedSongs,
-    setPlayedSongs
+    setCurrentMusic
   } = usePlayerStore(state => state)
   const [isLooping, setIsLooping] = useState(false);
   const [isRandom, setIsRandom] = useState(false);
@@ -42,7 +40,6 @@ export const Player = () => {
     audioRef.current.volume = volume;
   }, [volume]);
 
-
   useEffect(() => {
     const { song, playlist, songs } = currentMusic
     if (song) {
@@ -51,7 +48,7 @@ export const Player = () => {
       audioRef.current.volume = volume
       audioRef.current.play()
     }
-
+    
     audioRef.current.onended = () => {
       let nextSongIndex;
       if (isRandom) {
@@ -60,7 +57,9 @@ export const Player = () => {
         nextSongIndex = songs.findIndex(s => s.id === song.id) + 1;
         if (nextSongIndex >= songs.length) nextSongIndex = 0;
       }
-      setCurrentMusic({ song: songs[nextSongIndex], playlist, songs });
+        setTimeout(() => {
+          setCurrentMusic({ song: songs[nextSongIndex], playlist, songs });
+        }, 1200);
     };
   }, [currentMusic]);
 
@@ -113,7 +112,7 @@ export const Player = () => {
           </div>
           <SongControl audio={audioRef}/> 
 
-          <audio ref={audioRef} loop={isLooping}></audio>
+          <audio ref={audioRef} loop={isLooping} ></audio>
         </div>
 
       </div>
