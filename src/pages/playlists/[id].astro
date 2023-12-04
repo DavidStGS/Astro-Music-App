@@ -14,7 +14,7 @@ const playListSongs = songs.filter(
 ---
 
 <Layout title="Spotify Clone">
-  <div transition:name=`playlist${id}all`>
+  <div transition:name=`playlist${id}all` class="transition-all duration-500">
     <div class="hidden">
       <PlayButtom client:visible id={id} transition:name=`playlist${id}asddd` />
     </div>
