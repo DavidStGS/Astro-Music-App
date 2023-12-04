@@ -14,15 +14,11 @@ const playListSongs = songs.filter(
 ---
 
 <Layout title="Spotify Clone">
-  <div
-    id="playlist-container"
-    class="relative
-    bg-gradient-to-b
-    pt-8
-    overflow-x-hidden"
-    transition:name=`playlist${id}asd`
-  >
-    <header class="flex flex-row gap-8 px-6 my-4">
+  <div transition:name=`playlist${id}all`>
+    <div class="hidden">
+      <PlayButtom client:visible id={id} transition:name=`playlist${id}asddd` />
+    </div>
+    <header class="flex flex-row gap-8 px-6 pt-6 pb-4">
       <picture
         class="aspect-square
       w-44
@@ -65,7 +61,9 @@ const playListSongs = songs.filter(
     </header>
     <div class="bg-zinc-800/20 mt-6 flex-1 p-6 blur-100">
       <div class="pl-6 pt-1 pb-1">
-        <PlayButtom client:load id={id} />
+        <div>
+          <PlayButtom client:visible id={id} />
+        </div>
       </div>
       <SongRow song={playListSongs} />
     </div>

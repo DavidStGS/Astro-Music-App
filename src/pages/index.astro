@@ -6,21 +6,10 @@ import { DateToday } from "../components/DateToday";
 ---
 
 <Layout title="Spotify Clone">
-  <div
-    id="playlist-container"
-    class="relative
-    transition-all
-    duration-1000
-    h-40
-    bg-gradient-to-b
-  from-green-600
-    pt-8
-    rounded-lg"
-  >
-    <div class="relative z-10 px-6 py-6">
-      <DateToday client:load />
-      <div
-        class="grid
+  <div class="relative z-10 px-[22px] py-[14px]">
+    <DateToday client:load />
+    <div
+      class="grid
           grid-cols-2
           sm:grid-cols-3
           md:grid-cols-3
@@ -29,9 +18,8 @@ import { DateToday } from "../components/DateToday";
           2xl:grid-cols-8
           gap-4
           mt-4"
-      >
-        {playlists.map((playlist) => <PlayListCard playlist={playlist} />)}
-      </div>
+    >
+      {playlists.map((playlist) => <PlayListCard playlist={playlist} />)}
     </div>
   </div>
 </Layout>

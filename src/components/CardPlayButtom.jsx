@@ -33,7 +33,7 @@ export function PlayButtom({ id, size = 'small'}) {
         }
         const iconSize = size === 'small' ? 'w-4 h-4' : 'w-5 h-5'
     return (
-        <button aria-label='Play' onClick={handleClick} className="rounded-full bg-green-500 p-4 transition hover:scale-105 ">
+        <button aria-label='Play' onClick={handleClick} className="rounded-full bg-green-500 p-4 transition-all hover:scale-105">
             {isPlayingPlaylist ? <Pause className={iconSize}/> : <Play className={iconSize}/>}
         </button>
     )

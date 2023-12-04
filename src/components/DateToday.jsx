@@ -4,13 +4,12 @@ export function DateToday () {
 
   let greeting = "";
 
-  if (currentHour < 12) {
+  if (currentHour >= 8 && currentHour < 12) {
     greeting = "¡Buenos días!";
-  } else if (currentHour < 18) {
+  } else if (currentHour >= 12 && currentHour < 20) {
     greeting = "¡Buenas tardes!";
   } else {
     greeting = "¡Buenas noches!";
   }
-
-  return <h1 className="text-3xl font-bold text-white">{greeting}</h1>;
+  return <p className="text-[32px] font-extrabold text-white tracking-tighter">{greeting}</p>;
 };

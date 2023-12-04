@@ -3,6 +3,7 @@ import AsideContent from "../components/AsideContent.astro";
 import AsideMenu from "../components/AsideMenu.astro";
 import { ViewTransitions } from "astro:transitions";
 import { Player } from "../components/Player";
+import Header from "../components/Header.astro";
 
 interface Props {
   title: string;
@@ -46,89 +47,104 @@ const { title } = Astro.props;
       </aside>
       <main
         class="[grid-area:main]
-        rounded-lg
-        bg-[#121212]
-        overflow-y-auto
-        w-full
-        z-10"
+          rounded-lg
+          bg-[#121212]
+          overflow-y-auto
+          w-full
+          h-full
+          z-10"
       >
-        <slot />
+        <div
+          id="playlist-container"
+          class="relative
+            transition-all
+            duration-1000
+            h-52
+            pt-3
+            bg-gradient-to-b
+          from-green-600
+            rounded-lg"
+        >
+          <Header transition:persist />
+          <slot />
+        </div>
       </main>
-      <footer class="[grid-area:player] z-50">
+      <footer class="[grid-area:player] relative z-[1000]">
         <Player client:load transition:name="media-player" transition:persist />
       </footer>
+
+      <style>
+        #add {
+          display: grid;
+          grid-template-areas:
+            "aside main main"
+            "player player player";
+          grid-template-columns: 344px 1fr;
+          grid-template-rows: 2fr auto;
+        }
+      </style>
+      <style is:global>
+        html {
+          font-family: "CircularStd", system-ui, sans-serif;
+          background: #000000;
+        }
+        @font-face {
+          font-family: "CircularStd";
+          src: url("/fonts/CircularStd-Medium.woff2") format("woff2");
+          font-weight: 500;
+          font-style: normal;
+          font-display: swap;
+        }
+
+        @font-face {
+          font-family: "CircularStd";
+          src: url("/fonts/CircularStd-Book.woff2") format("woff2");
+          font-weight: 400;
+          font-style: normal;
+          font-display: swap;
+        }
+
+        @font-face {
+          font-family: "CircularStd";
+          src: url("/fonts/CircularStd-Light.woff2") format("woff2");
+          font-weight: 300;
+          font-style: normal;
+          font-display: swap;
+        }
+
+        @font-face {
+          font-family: "CircularStd";
+          src: url("/fonts/CircularStd-Bold.woff2") format("woff2");
+          font-weight: 700;
+          font-style: normal;
+          font-display: swap;
+        }
+
+        @font-face {
+          font-family: "CircularStd";
+          src: url("/fonts/CircularStd-Black.woff2") format("woff2");
+          font-weight: 900;
+          font-style: normal;
+          font-display: swap;
+        }
+        *::-webkit-scrollbar {
+          width: 8px;
+        }
+
+        *::-webkit-scrollbar-track {
+          background: rgb(18, 18, 18);
+          border-radius: 14px;
+        }
+
+        *::-webkit-scrollbar-thumb {
+          background-color: rgb(56, 56, 56);
+          border-radius: 14px;
+        }
+
+        *::-webkit-scrollbar-thumb:hover {
+          background-color: rgb(66, 65, 65);
+        }
+      </style>
     </div>
-    <style>
-      #add {
-        display: grid;
-        grid-template-areas:
-          "aside main main"
-          "player player player";
-        grid-template-columns: 344px 1fr;
-        grid-template-rows: 2fr auto;
-      }
-    </style>
-    <style is:global>
-      html {
-        font-family: "CircularStd", system-ui, sans-serif;
-        background: #000000;
-      }
-      @font-face {
-        font-family: "CircularStd";
-        src: url("/fonts/CircularStd-Medium.woff2") format("woff2");
-        font-weight: 500;
-        font-style: normal;
-        font-display: swap;
-      }
-
-      @font-face {
-        font-family: "CircularStd";
-        src: url("/fonts/CircularStd-Book.woff2") format("woff2");
-        font-weight: 400;
-        font-style: normal;
-        font-display: swap;
-      }
-
-      @font-face {
-        font-family: "CircularStd";
-        src: url("/fonts/CircularStd-Light.woff2") format("woff2");
-        font-weight: 300;
-        font-style: normal;
-        font-display: swap;
-      }
-
-      @font-face {
-        font-family: "CircularStd";
-        src: url("/fonts/CircularStd-Bold.woff2") format("woff2");
-        font-weight: 700;
-        font-style: normal;
-        font-display: swap;
-      }
-
-      @font-face {
-        font-family: "CircularStd";
-        src: url("/fonts/CircularStd-Black.woff2") format("woff2");
-        font-weight: 900;
-        font-style: normal;
-        font-display: swap;
-      }
-      *::-webkit-scrollbar {
-        width: 8px;
-      }
-
-      *::-webkit-scrollbar-track {
-        background: rgb(18, 18, 18);
-        border-radius: 14px;
-      }
-
-      *::-webkit-scrollbar-thumb {
-        background-color: rgb(56, 56, 56);
-        border-radius: 14px;
-      }
-
-      *::-webkit-scrollbar-thumb:hover {
-        background-color: rgb(66, 65, 65);
-      }
-    </style>
   </body>
 </html>
