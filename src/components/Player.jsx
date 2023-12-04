@@ -92,7 +92,7 @@ export const Player = () => {
       <div className="grid place-content-center flex-1">
         <div className="flex justify-center flex-col items-center">
           <div className="flex flex-row gap-x-6">
-          <button className="text-[#C1C1C1] cursor-default transition-all duration-75 hover:text-white" onClick={handleRandomToggle}>
+          <button aria-label='Random' className="text-[#C1C1C1] cursor-default transition-all duration-75 hover:text-white" onClick={handleRandomToggle}>
            {isRandom ?  <SongRandom className="text-green-500" /> : <SongRandom className="text-[#C1C1C1] hover:text-white" />}
           </button>
           <button aria-label='Previous' className="text-[#C1C1C1] hover:text-white cursor-default" onClick={handlePrevious}>
@@ -101,10 +101,10 @@ export const Player = () => {
             <button aria-label='Play' className="bg-white rounded-full p-2 cursor-default hover:scale-105 transition duration-75" onClick={handleClick}>
               {isPlaying ? <Pause /> : <Play />}
             </button>
-            <button aria-label='Previous' className="text-[#C1C1C1] hover:text-white cursor-default" onClick={handleNext}>
+            <button aria-label='Next' className="text-[#C1C1C1] hover:text-white cursor-default" onClick={handleNext}>
               <SongNext/>
             </button>
-            <button className="text-[#C1C1C1] cursor-default transition-all duration-75 hover:text-white" onClick={handleLoop}>
+            <button aria-label='Loop' className="text-[#C1C1C1] cursor-default transition-all duration-75 hover:text-white" onClick={handleLoop}>
               {isLooping ?  <SongLoop className="text-green-500" /> : <SongNormal className="text-[#C1C1C1] hover:text-white" />}
             </button>
           </div>
