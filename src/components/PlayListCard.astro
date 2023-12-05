@@ -12,32 +12,15 @@ const artistsStrings = artists.join(", ");
 ---
 
 <article
-  class="group relative
-    bg-neutral-400/5
-      cursor-pointer
-    hover:bg-neutral-400/10
-      rounded-md"
+  class="group relative bg-neutral-400/5 cursor-pointer hover:bg-neutral-400/10 rounded-md"
   transition:name=`playlist ${id} all`
 >
   <a
     href={`/playlists/${id}`}
-    class="flex
-        flex-col
-        items-center
-        justify-center
-        gap-x-4
-        p-3
-        transition-all
-        duration-700"
+    class="flex flex-col items-center justify-center gap-x-4 p-3 transition-all duration-700"
   >
     <div
-      class="aspect-square
-          w-full
-          h-full
-          rounded-md
-          overflow-hidden
-          shadow-lg
-          shadow-[#000000]"
+      class="aspect-square w-full h-full rounded-md overflow-hidden shadow-lg shadow-[#000000]"
       style={{ transition: "box-shadow 0.1s" }}
       transition:name=`playlist ${id} image`
     >
@@ -53,11 +36,7 @@ const artistsStrings = artists.join(", ");
         {title}
       </p>
       <p
-        class="text-neutral-400
-            text-sm
-            pb-4
-            w-full
-            truncate"
+        class="text-neutral-400 text-sm w-full truncate"
         transition:name=`playlist ${id} artists`
       >
         By {artists}
@@ -66,10 +45,8 @@ const artistsStrings = artists.join(", ");
   </a>
   <div transition:name=`playlist ${id} play button`>
     <div
-      class="absolute right-[25px]
-      bottom-[105px] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+      class="absolute right-[25px] bottom-[90px] opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-5  group-hover:translate-y-0"
     >
       <PlayButtom id={id} client:load />
     </div>
-  </div>
 </article>

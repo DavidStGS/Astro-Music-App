@@ -30,7 +30,7 @@ export const SongRow = ({ song }) => {
           <tr className="h-[15px]"></tr>
           {song.map((song, index) => (
             <tr 
-            className={`text-gray-400 hover:bg-zinc-800 overflow-hidden transition duration-100 cursor-pointer`}
+            className={`text-gray-400 hover:bg-gray-500/20 overflow-hidden transition duration-100`}
             key={song.id}
             >
               <td className="px-4 py-2 rounded-tl-lg rounded-bl-lg w-14">
