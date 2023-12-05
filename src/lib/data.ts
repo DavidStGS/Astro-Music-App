@@ -23,7 +23,7 @@ export const playlists: Playlist[] = [
     id: '2',
     albumId: 2,
     title: "Lo-Fi Chill Session",
-    color: colors.green,
+    color: colors.blue,
     cover:
       "https://vinyl.lofirecords.com/cdn/shop/files/2amsynth-vinyl.png?v=1693312187",
     artists: ["Kupla", "Blue Fox"],
@@ -41,7 +41,7 @@ export const playlists: Playlist[] = [
     id: '4',
     albumId: 4,
     title: "Blue Note Study Time",
-    color: colors.blue,
+    color: colors.green,
     cover:
       "https://f4.bcbits.com/img/a1962013209_16.jpg",
     artists: ["Raimu", "Yasumu"],

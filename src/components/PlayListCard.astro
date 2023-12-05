@@ -5,14 +5,16 @@ import { PlayButtom } from "../components/CardPlayButtom.jsx";
 interface Props {
   playlist: Playlist;
 }
+
 const { playlist } = Astro.props;
-const { id, cover, title, artists } = playlist;
+const { id, cover, title, artists, color } = playlist;
 
 const artistsStrings = artists.join(", ");
 ---
 
 <article
   class="group relative bg-neutral-400/5 cursor-pointer hover:bg-neutral-400/10 rounded-md"
+  style={`background-color: ${color};`}
   transition:name=`playlist ${id} all`
 >
   <a
@@ -45,8 +47,9 @@ const artistsStrings = artists.join(", ");
   </a>
   <div transition:name=`playlist ${id} play button`>
     <div
-      class="absolute right-[25px] bottom-[90px] opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-5  group-hover:translate-y-0"
+      class="absolute right-[25px] bottom-[90px] opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-5 group-hover:translate-y-0"
     >
       <PlayButtom id={id} client:load />
     </div>
+  </div>
 </article>

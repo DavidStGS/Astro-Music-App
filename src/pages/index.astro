@@ -6,12 +6,17 @@ import { DateToday } from "../components/DateToday";
 ---
 
 <Layout title="Spotify Clone">
-  <div class="relative z-10 px-[22px] py-[14px]">
-    <DateToday client:load />
-    <div
-      class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-8 gap-4 mt-4"
-    >
-      {playlists.map((playlist) => <PlayListCard playlist={playlist} />)}
+  <div
+    class="absolute h-[45vh] inset-0 z-[-1]"
+    style={`background-image: linear-gradient(to bottom, rgba(16, 185, 129, 0.80), #12121212)`}
+  >
+    <div class="relative z-10 px-[22px] py-[60px]">
+      <DateToday client:load />
+      <div
+        class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-8 gap-4 mt-4"
+      >
+        {playlists.map((playlist) => <PlayListCard playlist={playlist} />)}
+      </div>
     </div>
   </div>
 </Layout>
