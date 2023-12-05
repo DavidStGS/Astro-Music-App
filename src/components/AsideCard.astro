@@ -12,20 +12,9 @@ const artistsStrings = artists.join(", ");
 
 <a
   href={`/playlists/${id}`}
-  class="flex
-  items-center
-  gap-x-2
-  cursor-pointer
-  hover:bg-neutral-800/50
-  w-full
-  p-4
-  rounded-sm"
+  class="flex items-center gap-x-2 cursor-pointer hover:bg-neutral-800/50 w-full p-4 rounded-sm"
 >
-  <div class="relative
-  rounded-[3px]
-  w-[50px]
-  h-[50px]
-  overflow-hidden">
+  <div class="relative rounded-[3px] w-[50px] h-[50px] overflow-hidden">
     <picture>
       <img src={cover} alt={`Cover of ${title} by ${artistsStrings}`} />
     </picture>

@@ -12,5 +12,9 @@ import AsideCard from "./AsideCard.astro";
        Tu biblioteca
     </SideMenuItemsLibrary>
   </ul>
-  {playlists.map((playlists) => <AsideCard playlist={playlists} />)}
+  {
+    playlists.map((playlists) => (
+      <AsideCard playlist={playlists} transition:persist client:load />
+    ))
+  }
 </div>

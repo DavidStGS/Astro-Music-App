@@ -16,12 +16,7 @@ const playListSongs = songs.filter(
   <div transition:name=`playlist ${id} all`>
     <header class="flex flex-row gap-8 px-6 pt-6 pb-4">
       <picture
-        class="aspect-square
-          w-44
-          h-44
-          rounded-md
-          shadow-lg
-        shadow-[#000000]"
+        class="aspect-square w-44 h-44 rounded-md shadow-lg shadow-[#000000]"
         style={{ transition: "box-shadow 0.1s" }}
         transition:name=`playlist ${id} image`
       >
@@ -52,14 +47,20 @@ const playListSongs = songs.filter(
       </div>
     </header>
     <div class="bg-zinc-900/30 mt-6 flex-1 p-6 blur-100">
-      <div class="flex gap-1 items-center ml-5 mt-1 mb-1" >
-        <PlayButtom id={id} client:load/> 
+      <div class="flex gap-1 items-center ml-5 mt-1 mb-1">
+        <PlayButtom id={id} client:load />
       </div>
       <SongRow song={playListSongs} />
     </div>
-    <div class="absolute h-[80vh] inset-0 z-[-1] bg-gradient-to-b from-blue-700" style="--context-color:#2ee9d7">
-      <img src={playList?.cover} alt={`Cover of ${playList?.title} by ${playList?.artists}`} 
-      class="el-to-fade transition-all duration-500 z-[-1] absolute inset-0 mix-blend-overlay opacity-20 w-full h-full object-cover blur-md" >
+    <div
+      class="absolute h-[80vh] inset-0 z-[-1] bg-gradient-to-b from-blue-700"
+      style="--context-color:#2ee9d7"
+    >
+      <img
+        src={playList?.cover}
+        alt={`Cover of ${playList?.title} by ${playList?.artists}`}
+        class="el-to-fade transition-all duration-500 z-[-1] absolute inset-0 mix-blend-overlay opacity-20 w-full h-full object-cover blur-md"
+      />
     </div>
   </div>
 </Layout>

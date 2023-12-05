@@ -24,46 +24,19 @@ const { title } = Astro.props;
     <ViewTransitions fallback="none" />
   </head>
   <body>
-    <div id="add" class="relative
-      h-screen
-      p-2
-      gap-2">
-      <aside
-        class="[grid-area:aside]
-        flex-col
-        flex gap-2
-        overflow-y-auto"
-      >
-        <AsideMenu transition:name="menu" transition:persist/>
-        <div
-          class="bg-[#121212]
-          gap-2
-          rounded-lg
-          overflow-y-auto
-          h-full"
-        >
-          <AsideContent transition:name="menu" transition:persist/>
+    <div id="add" class="relative h-screen p-2 gap-2">
+      <aside class="[grid-area:aside] flex-col flex gap-2 overflow-y-auto">
+        <AsideMenu />
+        <div class="bg-[#121212] gap-2 rounded-lg overflow-y-auto h-full">
+          <AsideContent transition:persist client:load />
         </div>
       </aside>
       <main
-        class="[grid-area:main]
-          rounded-lg
-          bg-[#121212]
-          overflow-y-auto
-          w-full
-          h-full
-          z-10"
+        class="[grid-area:main] rounded-lg bg-[#121212] overflow-y-auto w-full h-full z-10"
       >
         <div
           id="playlist-container"
-          class="relative
-            transition-all
-            duration-1000
-            h-52
-            pt-3
-            bg-gradient-to-b
-          from-green-600
-            rounded-lg"
+          class="relative transition-all duration-1000 h-52 pt-3 bg-gradient-to-b from-green-600 rounded-lg"
         >
           <Header transition:persist />
           <slot />
