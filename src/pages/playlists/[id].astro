@@ -14,13 +14,13 @@ const playListSongs = songs.filter(
 
 <Layout title="Spotify Clone">
   <div
-    class="absolute h-[90vh] inset-0 z-[-1]"
+    class="absolute h-screen inset-0 z-[-1] blur-md"
     style={`background-image: linear-gradient(to bottom, ${playList?.color.accent}, ${playList?.color.dark}, #121212)`}
   >
     <img
       src={playList?.cover}
       alt={`Cover of ${playList?.title} by ${playList?.artists}`}
-      class="el-to-fade transition-all duration-500 z-[-1] absolute inset-0 mix-blend-overlay opacity-20 w-full h-full object-cover blur-md"
+      class="el-to-fade transition-all duration-500 z-[-1] absolute inset-0 mix-blend-overlay opacity-20 w-screen h-screen object-cover blur-sm"
     />
   </div>
   <div transition:name=`playlist ${id} all`>
