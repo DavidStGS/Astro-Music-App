@@ -35,10 +35,8 @@ const { title } = Astro.props;
         class="[grid-area:main] rounded-lg bg-[#121212] overflow-y-auto w-full h-full z-10"
       >
         <div
-          id="playlist-container"
           class="relative transition-all duration-1000 h-52 pt-3 bg-gradient-to-b from-green-600 rounded-lg"
         >
-          <Header transition:persist />
           <slot />
         </div>
       </main>
