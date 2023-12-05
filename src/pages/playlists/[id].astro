@@ -13,6 +13,16 @@ const playListSongs = songs.filter(
 ---
 
 <Layout title="Spotify Clone">
+  <div
+    class="absolute h-[85vh] inset-0 z-[-1] bg-gradient-to-b from-green-500"
+    style="--context-color:#2ee9d7"
+  >
+    <img
+      src={playList?.cover}
+      alt={`Cover of ${playList?.title} by ${playList?.artists}`}
+      class="el-to-fade transition-all duration-500 z-[-1] absolute inset-0 mix-blend-overlay opacity-20 w-full h-full object-cover blur-md"
+    />
+  </div>
   <div transition:name=`playlist ${id} all`>
     <header class="flex flex-row gap-8 px-6 pt-6 pb-4">
       <picture
@@ -51,16 +61,6 @@ const playListSongs = songs.filter(
         <PlayButtom id={id} client:load />
       </div>
       <SongRow song={playListSongs} />
-    </div>
-    <div
-      class="absolute h-[80vh] inset-0 z-[-1] bg-gradient-to-b from-blue-700"
-      style="--context-color:#2ee9d7"
-    >
-      <img
-        src={playList?.cover}
-        alt={`Cover of ${playList?.title} by ${playList?.artists}`}
-        class="el-to-fade transition-all duration-500 z-[-1] absolute inset-0 mix-blend-overlay opacity-20 w-full h-full object-cover blur-md"
-      />
     </div>
   </div>
 </Layout>
