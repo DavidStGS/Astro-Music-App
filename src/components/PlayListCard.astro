@@ -11,16 +11,61 @@ const { id, cover, title, artists } = playlist;
 const artistsStrings = artists.join(", ");
 ---
 
-<div>
-  <article
-    class="group relative
+<article
+  class="group relative
     bg-neutral-400/5
       cursor-pointer
     hover:bg-neutral-400/10
       rounded-md"
+  transition:name=`playlist ${id} all`
+>
+  <a
+    href={`/playlists/${id}`}
+    class="flex
+        flex-col
+        items-center
+        justify-center
+        gap-x-4
+        p-3
+        transition-all
+        duration-700"
   >
     <div
-      class="absolute
+      class="aspect-square
+          w-full
+          h-full
+          rounded-md
+          overflow-hidden
+          shadow-lg
+          shadow-[#000000]"
+      style={{ transition: "box-shadow 0.1s" }}
+      transition:name=`playlist ${id} image`
+    >
+      <picture>
+        <img src={cover} alt={`Cover of ${title} by ${artistsStrings}`} />
+      </picture>
+    </div>
+    <div class="flex flex-col items-start w-full pt-4 gap-y-1">
+      <p
+        class="font-semibold truncate w-full text-white"
+        transition:name=`playlist ${id} title`
+      >
+        {title}
+      </p>
+      <p
+        class="text-neutral-400
+            text-sm
+            pb-4
+            w-full
+            truncate"
+        transition:name=`playlist ${id} artists`
+      >
+        By {artists}
+      </p>
+    </div>
+  </a>
+  <div
+    class="absolute
         right-[25px]
         bottom-[105px]
         translate-y-5
@@ -30,58 +75,8 @@ const artistsStrings = artists.join(", ");
         z-10
         transition-all
         duration-300"
-      transition:name=`playlist${id}asddd`
-    >
-      <PlayButtom client:visible id={id} />
-    </div>
-    <a
-      transition:name=`playlist${id}all`
-      href={`/playlists/${id}`}
-      class="flex
-        flex-col
-        items-center
-        justify-center
-        gap-x-4
-        p-3
-        transition-all
-        duration-700"
-    >
-      <div
-        class="aspect-square
-          w-full
-          h-full
-          rounded-md
-          overflow-hidden
-          shadow-lg
-          shadow-[#000000]"
-        style={{ transition: "box-shadow 0.1s" }}
-      >
-        <picture>
-          <img
-            src={cover}
-            alt={`Cover of ${title} by ${artistsStrings}`}
-            transition:name=`playlist ${id} image`
-          />
-        </picture>
-      </div>
-      <div class="flex flex-col items-start w-full pt-4 gap-y-1">
-        <p
-          transition:name=`playlist ${title}`
-          class="font-semibold truncate w-full text-white"
-        >
-          {title}
-        </p>
-        <p
-          class="text-neutral-400
-            text-sm
-            pb-4
-            w-full
-            truncate"
-          transition:name=`playlist ${id} artists`
-        >
-          By {artists}
-        </p>
-      </div>
-    </a>
-  </article>
-</div>
+    transition:name=`playlist ${id} play button`
+  >
+    <PlayButtom client:visible id={id} />
+  </div>
+</article>
