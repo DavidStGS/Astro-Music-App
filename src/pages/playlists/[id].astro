@@ -14,7 +14,7 @@ const playListSongs = songs.filter(
 
 <Layout title="Spotify Clone">
   <div
-    class="absolute h-screen inset-0 z-[-1] blur-md"
+    class="absolute h-screen inset-0 z-[-1] blur-md overflow-x-hidden"
     style={`background-image: linear-gradient(to bottom, ${playList?.color.accent}, ${playList?.color.dark}, #121212)`}
   >
     <img
@@ -63,4 +63,18 @@ const playListSongs = songs.filter(
       <SongRow song={playListSongs} />
     </div>
   </div>
+  <style>
+    .el-to-fade {
+      animation: zoomIn 0.5s ease-in-out forwards;
+    }
+
+    @keyframes zoomIn {
+      0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(1.2);
+      }
+    }
+  </style>
 </Layout>
