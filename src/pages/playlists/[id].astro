@@ -31,6 +31,7 @@ const playListSongs = songs.filter(
         transition:name=`playlist ${id} image`
       >
         <img
+          class="rounded-md w-full h-[175px]"
           src={playList?.cover}
           alt={`Cover of ${playList?.title} by ${playList?.artists}`}
         />
